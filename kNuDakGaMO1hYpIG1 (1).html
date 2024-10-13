@@ -1,0 +1,208 @@
+<html><head><base href="https://example.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D&M Studios - Swift Sales Dashboard</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-color: #f0f2f5;
+  }
+  .container {
+    display: flex;
+    height: 100%;
+  }
+  .sidebar {
+    width: 200px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  }
+  .logo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 30px;
+  }
+  .logo span {
+    color: #16a085;
+  }
+  .menu-item {
+    padding: 10px 0;
+    color: #34495e;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  .menu-item i {
+    margin-right: 10px;
+    width: 20px;
+  }
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .search-bar {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+    width: 300px;
+    background-color: #f7f9fa;
+  }
+  .overview-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .card {
+    background-color: #f7f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    width: 30%;
+    display: flex;
+    align-items: center;
+  }
+  .card-icon {
+    margin-right: 15px;
+    font-size: 24px;
+    color: #16a085;
+  }
+  .card-content h3 {
+    margin: 0;
+    font-size: 14px;
+    color: #7f8c8d;
+  }
+  .card-content p {
+    margin: 5px 0 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  .action-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+  }
+  .btn i {
+    margin-right: 5px;
+  }
+  .btn-icon {
+    padding: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ecf0f1;
+    color: #16a085;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="sidebar">
+    <div class="logo">D&M <span>STUDIOS</span></div>
+    <div class="menu-item"><i class="fas fa-chart-line"></i> Overview</div>
+    <div class="menu-item"><i class="fas fa-plus"></i> Add item</div>
+    <div class="menu-item"><i class="fas fa-credit-card"></i> Credit Customer</div>
+    <div class="menu-item"><i class="fas fa-user"></i> Customer</div>
+    <div class="menu-item"><i class="fas fa-dollar-sign"></i> Revenue</div>
+    <div class="menu-item"><i class="fas fa-building"></i> Company</div>
+    <div class="menu-item"><i class="fas fa-shopping-cart"></i> Purchase</div>
+    <div class="menu-item"><i class="fas fa-info-circle"></i> About</div>
+  </div>
+  <div class="content">
+    <div class="header">
+      <h2>Overview</h2>
+      <input type="text" class="search-bar" placeholder="Search Part Number...">
+    </div>
+    <div class="overview-cards">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-tag"></i></div>
+        <div class="card-content">
+          <h3>Items Sold</h3>
+          <p>85</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-credit-card"></i></div>
+        <div class="card-content">
+          <h3>Customer credit</h3>
+          <p>17,800</p>
+        </div>
+      </div>
+      <div class="card">
+        <button class="btn-icon"><i class="fas fa-trash-alt"></i></button>
+        <div class="card-content">
+          <h3>Remove item</h3>
+        </div>
+      </div>
+    </div>
+    <div class="action-buttons">
+      <button class="btn"><i class="fas fa-sync-alt"></i> Refresh</button>
+      <button class="btn"><i class="fas fa-exchange-alt"></i> Transfer items</button>
+      <button class="btn"><i class="fas fa-lock"></i> Change Password</button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuItems = document.querySelectorAll('.menu-item');
+  menuItems.forEach(item => {
+    item.addEventListener('click', function() {
+      menuItems.forEach(i => i.style.fontWeight = 'normal');
+      this.style.fontWeight = 'bold';
+    });
+  });
+
+  const removeBtn = document.querySelector('.btn-icon');
+  removeBtn.addEventListener('click', function() {
+    alert('Item removed successfully!');
+  });
+
+  const refreshBtn = document.querySelector('.action-buttons .btn:nth-child(1)');
+  refreshBtn.addEventListener('click', function() {
+    location.reload();
+  });
+
+  const transferBtn = document.querySelector('.action-buttons .btn:nth-child(2)');
+  transferBtn.addEventListener('click', function() {
+    alert('Transfer items functionality not implemented in this demo.');
+  });
+
+  const changePasswordBtn = document.querySelector('.action-buttons .btn:nth-child(3)');
+  changePasswordBtn.addEventListener('click', function() {
+    const newPassword = prompt('Enter new password:');
+    if (newPassword) {
+      alert('Password changed successfully!');
+    }
+  });
+});
+</script>
+</body>
+</html>
