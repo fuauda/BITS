@@ -592,18 +592,19 @@ background-color: #16a085;
 
 
 /*ABOUT US*/
-
-
-.container {
-  display: flex;
-  height: 100vh; /* Full height of the viewport */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  background-color: #f0f2f5;
 }
 
-.content {
+.about-content {
   padding: 40px;
   background-color: #ffffff;
-  flex: 1; /* Take up remaining space */
-  overflow-y: auto; /* Allow scrolling if content overflows */
+  min-height: 100vh;
+  overflow-y: auto;
 }
 
 .header {
@@ -612,7 +613,7 @@ background-color: #16a085;
 
 .about-section {
   max-width: 800px;
-  margin: 0 auto; /* Center the section */
+  margin: 0 auto;
 }
 
 .about-card {
@@ -656,7 +657,7 @@ background-color: #16a085;
 }
 
 .contact-item {
-  flex-basis: 48%; /* Make two items per row */
+  flex-basis: 48%;
   margin-bottom: 15px;
 }
 
@@ -665,19 +666,3 @@ background-color: #16a085;
   margin-right: 10px;
 }
 
-.image-gallery {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.gallery-image {
-  width: 30%;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.gallery-image:hover {
-  transform: scale(1.05);
-}

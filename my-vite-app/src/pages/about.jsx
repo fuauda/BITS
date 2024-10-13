@@ -1,11 +1,12 @@
-import About from "../components/Aboutus.jSx"
+import AboutPage from "../components/Aboutus.jSx"
+
 
 
 const Abouts = () => {
 
     return (
         <div>
-            <About />
+            <AboutPage />
         </div>
     )
 }
